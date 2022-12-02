@@ -1,7 +1,7 @@
 import type { GetServerSideProps, NextPage } from 'next';
 
 import { client } from '../lib/client';
-import { Product, FooterBanner, HeroBanner} 
+import { FooterBanner, HeroBanner} 
 from '../components';
 
 
