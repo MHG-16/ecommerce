@@ -1,9 +1,32 @@
+import Head from 'next/head'
 import React from 'react'
 
-const Layout = () => {
+import Footer from './Footer'
+import NavBar from './NavBar'
+
+
+const Layout = ({children}: LayoutProps) => {
   return (
-    <div>Layout</div>
+    <div className='layout'>
+      <Head>
+        <title> Amegakure no Sato Store</title>
+        <link rel="icon" type="image/jpg" href="/index.png" />
+      </Head>
+      <header>
+        <NavBar />
+      </header>
+      <main className='main-container'>
+        {children}
+      </main>
+      <footer>
+        <Footer />
+      </footer>
+    </div>
   )
+}
+
+export interface LayoutProps  { 
+  children: React.ReactNode
 }
 
 export default Layout
