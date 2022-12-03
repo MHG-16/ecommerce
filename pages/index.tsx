@@ -15,7 +15,7 @@ const Home: NextPage = ({products, bannerData}: any) => {
         <p>Speakers of many variations</p>
       </div>
       <div className='products-container'>
-        {products?.map((product:{name: string, _id:string}) => <Product key={product._id} product={product} />)}
+        {products?.map((product:{name: string, _id:string,image: any, slug: any, price:number}) => <Product key={product._id} product={product} />)}
       </div>
 
       <FooterBanner/>

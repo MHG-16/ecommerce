@@ -1,9 +1,10 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-import { urlFor } from '../lib/client'
 
-const Product = ({product: {image, name, slug, price}}: any) => {
+import { urlFor } from '../lib/client'
+import { ProductPropsType } from '../types/ProductType'
+
+const Product = ({product: {image, name, slug, price}}: ProductPropsType) => {
   return (
     <div>
       <Link href={`prodduct/${slug.current}`}>
@@ -19,5 +20,7 @@ const Product = ({product: {image, name, slug, price}}: any) => {
     </div>
   )
 }
+
+
 
 export default Product
