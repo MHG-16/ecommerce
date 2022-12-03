@@ -2,7 +2,7 @@ import Link from 'next/link'
 import React from 'react'
 
 import { urlFor } from '../lib/client'
-import { ProductPropsType } from '../types/ProductType'
+import { ProductPropsType } from '../types/productType'
 
 const Product = ({product: {image, name, slug, price}}: ProductPropsType) => {
   return (

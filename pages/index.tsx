@@ -18,7 +18,8 @@ const Home: NextPage = ({products, bannerData}: any) => {
         {products?.map((product:{name: string, _id:string,image: any, slug: any, price:number}) => <Product key={product._id} product={product} />)}
       </div>
 
-      <FooterBanner/>
+      <FooterBanner footerBanner={bannerData.length &&
+      bannerData[0]}/>
     </>
   )
 }

@@ -3,7 +3,7 @@ import Link from 'next/link';
 import React from 'react';
 
 import { urlFor } from '../lib/client';
-import heroBannerPropsType from '../types/HeroBannerType';
+import heroBannerPropsType from '../types/heroBannerType';
 
 export default function HeroBanner({heroBanner}: heroBannerPropsType) {
   return (
