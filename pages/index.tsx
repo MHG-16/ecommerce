@@ -1,7 +1,7 @@
 import type { GetServerSideProps, NextPage } from 'next';
 
 import { client } from '../lib/client';
-import { FooterBanner, HeroBanner} 
+import { FooterBanner, HeroBanner, Product} 
 from '../components';
 
 
@@ -10,13 +10,12 @@ const Home: NextPage = ({products, bannerData}: any) => {
     <>
       <HeroBanner heroBanner={bannerData.length &&
         bannerData[0]}/>
-      {console.log(bannerData)}
       <div className='products-heading'>
         <h2>Best selling products</h2>
         <p>Speakers of many variations</p>
       </div>
       <div className='products-container'>
-        {products?.map((product:{name: string}) => product.name)}
+        {products?.map((product:{name: string, _id:string}) => <Product key={product._id} product={product} />)}
       </div>
 
       <FooterBanner/>
