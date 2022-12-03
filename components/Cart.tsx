@@ -8,7 +8,7 @@ import QuantitySection from './QuantitySection';
 
 export default function Cart() {
   const cartRef = useRef<HTMLDivElement|null>(null);
-  const { totalPrice, totalQuantity, cartItems, setShowCart } = useStateContext();
+  const { totalPrice, totalQuantity, cartItems, setShowCart, onRemove } = useStateContext();
 
   return (
     <div className='cart-wrapper' ref={cartRef}>
@@ -37,7 +37,7 @@ export default function Cart() {
         )}
 
         <div className='product-container'>
-          {cartItems.length >= 1 && cartItems.map((item:{image: any, name:string, price: number, _id: string}, index: number) => (
+          {cartItems.length >= 1 && cartItems.map((item:{image: any, name:string, price: number, _id: string, quantity: number}, index: number) => (
             <div className='product' key={`product-${index}-${item._id}`}>
               <img src={urlFor(item?.image[0]).toString()} 
                 className='cart-product-image'
@@ -48,10 +48,10 @@ export default function Cart() {
                   <h4>{item.price} DT</h4>
                 </div>
                 <div className='flex bottom'>
-                  <QuantitySection/>
+                  <QuantitySection product={item}/>
                   <button 
                     type='button' className='remove-item'
-                    onClick={() => null}>
+                    onClick={() => onRemove(item._id)}>
                       <TiDeleteOutline/>
                   </button>
                 </div>

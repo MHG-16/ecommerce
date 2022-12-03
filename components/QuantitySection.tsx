@@ -2,13 +2,13 @@ import React from 'react'
 import { AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai';
 import { useStateContext } from '../context/stateContext'
 
-const QuantitySection = () => {
-  const {decQty, qty, incQty} = useStateContext();
+const QuantitySection = ({product}:any) => {
+  const {decQty, qty, incQty, toggleCartItemQuantity} = useStateContext();
   return (
     <p className='quantity-desc'>
-                            <span className='minus' onClick={() => decQty()}><AiOutlineMinus/></span>
-                            <span className='num'>{qty}</span>
-                            <span className='plus' onClick={() => incQty()}><AiOutlinePlus/></span>
+                            <span className='minus' onClick={() => {decQty();product&&toggleCartItemQuantity(product._id,'dec')}}><AiOutlineMinus/></span>
+                            <span className='num'>{product?product.quantity:qty}</span>
+                            <span className='plus' onClick={() => {incQty();product&&toggleCartItemQuantity(product._id,'inc')}}><AiOutlinePlus/></span>
     </p>
   )
 }
