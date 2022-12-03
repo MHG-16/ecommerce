@@ -1,13 +1,17 @@
 import { GetStaticProps } from 'next'
 import React, { useState } from 'react'
 import { AiFillStar, AiOutlineMinus, AiOutlinePlus } from 'react-icons/ai'
+
 import { Product } from '../../components'
+import { useStateContext } from '../../context/stateContext'
 import { client, urlFor } from '../../lib/client'
+
 
 const ProductDetails = ({product, products}: any) => {
 
   const {image, name, details, price} = product;
   const [index, setIndex] =  useState(0);
+  const {decQty, incQty, qty, onAdd} = useStateContext();
   return (
     <div>
         <div className='product-detail-container'>
@@ -43,13 +47,13 @@ const ProductDetails = ({product, products}: any) => {
                     <div className='quantity'>
                         <h3>Quantity:</h3>
                         <p className='quantity-desc'>
-                            <span className='minus' onClick={() => null}><AiOutlineMinus/></span>
-                            <span className='num' onClick={() => null}>0</span>
-                            <span className='plus' onClick={() => null}><AiOutlinePlus/></span>
+                            <span className='minus' onClick={() => decQty()}><AiOutlineMinus/></span>
+                            <span className='num'>{qty}</span>
+                            <span className='plus' onClick={() => incQty()}><AiOutlinePlus/></span>
                         </p>
                     </div>
                     <div className='buttons'>
-                        <button type='button' className='add-to-cart' onClick={() => null}>Add to Cart</button>
+                        <button type='button' className='add-to-cart' onClick={() => onAdd(product, qty)}>Add to Cart</button>
                         <button type='button' className='buy-now' onClick={() => null}>Buy Now</button>
                     </div>
             </div>
