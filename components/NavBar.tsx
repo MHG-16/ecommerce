@@ -7,7 +7,7 @@ const NavBar = () => {
   return (
     <div className='navbar-container'>
       <p className='logo'>
-        <Link href="/">Amekagaru No Sato Store</Link>
+        <Link href="/">Amegakure No Sato Store</Link>
       </p>
 
       <button type='button' className='cart-icon' onClick={() => console.log("Clicked")}>

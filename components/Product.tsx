@@ -7,7 +7,7 @@ import { ProductPropsType } from '../types/productType'
 const Product = ({product: {image, name, slug, price}}: ProductPropsType) => {
   return (
     <div>
-      <Link href={`prodduct/${slug.current}`}>
+      <Link href={`/product/${slug.current}`}>
         <div className="product-card">
           <img src={urlFor(image && image[0]).toString()}
             width={250}
