@@ -26,6 +26,7 @@ const ProductDetails = ({product, products}: any) => {
                 className='small-images-container'>
                     {image?.map((item: any, count: number) => 
                     <img src={urlFor(item).toString()} 
+                        key={item._id}
                         className={count === index ? 'small-image selected-image' : 'small-image'}
                         onClick={() => setIndex(count)}/>)}
                 </div>
