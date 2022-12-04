@@ -10,7 +10,7 @@ const Layout = ({children}: LayoutProps) => {
     <div className='layout'>
       <Head>
         <title> Amegakure no Sato Store</title>
-        <link rel="icon" type="image/jpg" href="/index.png" />
+        <link rel="icon" type="image/png" href="/index.png" />
       </Head>
       <header>
         <NavBar />
