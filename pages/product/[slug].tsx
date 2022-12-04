@@ -44,7 +44,7 @@ const ProductDetails = ({product, products}: any) => {
                     </div>
                     <h4>Details: </h4>
                     <p>{details}</p>
-                    <p className='price'>{price} DT</p>
+                    <p className='price'>€{price}</p>
                     <div className='quantity'>
                         <h3>Quantity:</h3>
                         <QuantitySection/>
