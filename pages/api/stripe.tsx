@@ -32,8 +32,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             { shipping_rate: 'shr_1MBEiALJEg909AhHwGdU29Jk' }
         ],
         mode: 'payment',
-        success_url: `${req.headers.origin}/?success=true`,
-        cancel_url: `${req.headers.origin}/?canceled=true`,
+        success_url: `${req.headers.origin}/success`,
+        cancel_url: `${req.headers.origin}/canceled`,
       }
       // Create Checkout Sessions from body params.
       const session = await stripe.checkout.sessions.create(params);

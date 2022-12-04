@@ -1,7 +1,9 @@
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { BsBagCheckFill } from 'react-icons/bs';
-import { useStateContext } from '../context/stateContext'
+
+import { runfireworks } from '../lib/utils';
+import { useStateContext } from '../context/stateContext';
 
 const Success = () => {
 
@@ -11,7 +13,8 @@ const Success = () => {
     localStorage.clear();
     setCartItems([]);
     setTotalPrice(0);
-    setTotalQuantity(0)
+    setTotalQuantity(0); 
+    runfireworks();
   }, [])
   return (
     <div className='success-wrapper'>

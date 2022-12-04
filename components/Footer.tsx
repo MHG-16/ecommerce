@@ -4,7 +4,7 @@ import { AiFillInstagram, AiOutlineFacebook, AiOutlineTwitter } from 'react-icon
 export default function Footer() {
   return (
     <div className='footer-container'>
-      <p>2022 Amegakure No Sato All right cpyrights reserved</p>
+      <p>2022 Amegakure No Sato All right copyrights reserved</p>
       <p className='icons'>
         <AiOutlineTwitter/>
         <AiFillInstagram/>
