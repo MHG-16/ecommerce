@@ -12,7 +12,11 @@ const ProductDetails = ({product, products}: any) => {
 
   const {image, name, details, price} = product;
   const [index, setIndex] =  useState(0);
-  const {qty, onAdd} = useStateContext();
+  const {qty, onAdd, setShowCart} = useStateContext();
+  const handleBuyNow = () => {
+    onAdd(product, qty);
+    setShowCart(true)
+  }
   return (
     <div>
         <div className='product-detail-container'>
@@ -26,7 +30,7 @@ const ProductDetails = ({product, products}: any) => {
                 className='small-images-container'>
                     {image?.map((item: any, count: number) => 
                     <img src={urlFor(item).toString()} 
-                        key={item._id}
+                        key={count}
                         className={count === index ? 'small-image selected-image' : 'small-image'}
                         onClick={() => setIndex(count)}/>)}
                 </div>
@@ -52,7 +56,7 @@ const ProductDetails = ({product, products}: any) => {
                     </div>
                     <div className='buttons'>
                         <button type='button' className='add-to-cart' onClick={() => onAdd(product, qty)}>Add to Cart</button>
-                        <button type='button' className='buy-now' onClick={() => null}>Buy Now</button>
+                        <button type='button' className='buy-now' onClick={handleBuyNow}>Buy Now</button>
                     </div>
             </div>
         </div>
